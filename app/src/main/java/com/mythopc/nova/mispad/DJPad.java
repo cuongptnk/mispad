@@ -47,6 +47,8 @@ public class DJPad extends AppCompatActivity implements View.OnClickListener {
 
         song1Start.setOnClickListener(this);
         song2Start.setOnClickListener(this);
+        song1Stop.setOnClickListener(this);
+        song2Stop.setOnClickListener(this);
 
 
 
@@ -81,6 +83,14 @@ public class DJPad extends AppCompatActivity implements View.OnClickListener {
 
             }
             mediaPlayer2.start();
+        }
+
+        if(view == song1Stop) {
+            mediaPlayer1.stop();
+        }
+
+        if(view == song2Stop) {
+            mediaPlayer2.stop();
         }
 
     }
