@@ -1,5 +1,6 @@
 package com.mythopc.nova.mispad;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioManager;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +29,7 @@ public class DJPad extends AppCompatActivity implements View.OnClickListener, Vi
     MediaPlayer mediaPlayer2;
     MusicPlayerView mpv1;
     MusicPlayerView mpv2;
+    AudioManager audioManager;
 
 
 
@@ -79,6 +82,50 @@ public class DJPad extends AppCompatActivity implements View.OnClickListener, Vi
         mpv2.setOnClickListener(this);
 
         mpv1.setOnDragListener(this);
+
+
+        audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+
+
+        int maxVolume1 = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int curVolume1 = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+        SeekBar volControl1 = (SeekBar)findViewById(R.id.volumn1);
+        volControl1.setMax(maxVolume1);
+        volControl1.setProgress(curVolume1);
+        volControl1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onStopTrackingTouch(SeekBar arg0) {
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar arg0) {
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar arg0, int arg1, boolean arg2) {
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, arg1, 0);
+            }
+        });
+
+        int maxVolume2 = audioManager.getStreamMaxVolume(AudioManager.STREAM_RING);
+        int curVolume2 = audioManager.getStreamVolume(AudioManager.STREAM_RING);
+        SeekBar volControl2 = (SeekBar)findViewById(R.id.volumn2);
+        volControl2.setMax(maxVolume2);
+        volControl2.setProgress(curVolume2);
+        volControl2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onStopTrackingTouch(SeekBar arg0) {
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar arg0) {
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar arg0, int arg1, boolean arg2) {
+                audioManager.setStreamVolume(AudioManager.STREAM_RING, arg1, 0);
+            }
+        });
 
 
 
