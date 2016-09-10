@@ -7,67 +7,35 @@
     android:layout_height="match_parent"
     tools:context="dija.mixpad.DJPad">
 
-    <TextView
-        android:id="@+id/song1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+    <co.mobiwise.library.MusicPlayerView
+        android:id="@+id/mpv1"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:textSize = "14sp"
+        app:textColor = "#80FFFFFF"
+        app:buttonColor = "#FF0028"
+        app:progressLoadedColor = "#00815E"
+        app:progressEmptyColor = "#20FFFFFF"
+        app:cover = "@drawable/mycover"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="37dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="35dp"
-        android:text="Song 1" />
+        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:id="@+id/song1buttonstart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/song1"
-        android:layout_alignStart="@+id/song1"
-        android:layout_below="@+id/song1"
-        android:layout_marginTop="31dp"
-        android:text="Start" />
+    <co.mobiwise.library.MusicPlayerView
+        android:id="@+id/mpv2"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:textSize = "14sp"
+        app:textColor = "#80FFFFFF"
+        app:buttonColor = "#FF0028"
+        app:progressLoadedColor = "#00815E"
+        app:progressEmptyColor = "#20FFFFFF"
+        app:cover = "@drawable/cover2"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:id="@+id/song1buttonstop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/song1buttonstart"
-        android:layout_alignBottom="@+id/song1buttonstart"
-        android:layout_toEndOf="@+id/song1buttonstart"
-        android:layout_toRightOf="@+id/song1buttonstart"
-        android:text="Stop" />
 
-    <TextView
-        android:id="@+id/song2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/song1buttonstart"
-        android:layout_alignStart="@+id/song1buttonstart"
-        android:layout_below="@+id/song1buttonstart"
-        android:layout_marginTop="29dp"
-        android:text="song2" />
 
-    <Button
-        android:id="@+id/song2buttonstart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/song2"
-        android:layout_alignStart="@+id/song2"
-        android:layout_below="@+id/song2"
-        android:layout_marginLeft="21dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="18dp"
-        android:text="Start" />
 
-    <Button
-        android:id="@+id/song2buttonstop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/song2buttonstart"
-        android:layout_centerHorizontal="true"
-        android:text="Stop" />
 
 
 </RelativeLayout>
