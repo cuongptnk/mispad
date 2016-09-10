@@ -7,15 +7,17 @@ import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.DragEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 
 import co.mobiwise.library.MusicPlayerView;
 
-public class DJPad extends AppCompatActivity implements View.OnClickListener {
+public class DJPad extends AppCompatActivity implements View.OnClickListener, View.OnDragListener {
 
     Button song1Start, song1Stop, song2Start, song2Stop;
     TextView song1, song2;
@@ -67,12 +69,16 @@ public class DJPad extends AppCompatActivity implements View.OnClickListener {
         mpv1.setCoverDrawable(R.drawable.mycover);
 
 
+
+
         mpv2.setTimeColor(Color.BLUE);
         mpv2.setCoverDrawable(R.drawable.cover2);
 
 
         mpv1.setOnClickListener(this);
         mpv2.setOnClickListener(this);
+
+        mpv1.setOnDragListener(this);
 
 
 
@@ -102,15 +108,17 @@ public class DJPad extends AppCompatActivity implements View.OnClickListener {
                 mpv2.start();
             }
         }
-
-
-
-
     }
 
     public void onBackPressed() {
         finish();
         Intent i = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(i);
+    }
+
+    @Override
+    public boolean onDrag(View v, DragEvent event) {
+        Toast.makeText(getApplicationContext(),"I am dragging",Toast.LENGTH_LONG).show();
+        return false;
     }
 }
